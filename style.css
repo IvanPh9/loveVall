@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+	background: linear-gradient(90deg, rgba(221,168,196,1) 0%, rgba(244,179,179,1) 100%);
+	overflow: hidden;
+	font-family: "IBM Plex Serif", serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.column {
+  display: flex;
+  border-radius: 20px;
+  height: auto;
+  flex-direction: column; /* Розмістити елементи у вигляді колонки */
+  justify-content: center; /* Центрувати елементи в колонці по вертикалі */
+  align-items: center; /* Центрувати елементи в колонці по горизонталі */
+  transition: all 1.5s ease-in-out;
+  position: fixed;
+  
+}
+
+.heart {
+  width: 100px;
+  height: 90px;
+  position: relative;
+  animation: beat 3.5s infinite alternate;
+}
+
+.centered-image {
+    display: block;
+    margin: 0 auto;
+	border-radius: 5px;
+}
+
+.heart:before,
+.heart:after {
+  content: '';
+  width: 40px;
+  height: 60px;
+  position: absolute;
+  background: #a741b3;
+  border-radius: 60px 60px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart:before {
+  left: 50px;
+  box-shadow: 2px 2px 50px #a741b3;
+}
+
+.heart:after {
+  left: 22%;
+  transform: rotate(45deg);
+  bottom: 65%;
+ 
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  transition: op 0.5s ease-in-out;
+  overflow: hidden;
+  display: flex;
+  background-color: white;
+}
+
+h1 {
+	text-align: center;  
+	color: #a741b3;
+}
+
+p {
+	text-align: center;  
+	height: 12px;
+	width: 500px;
+	margin: 4px;
+	white-space: nowrap;
+}
+
+@keyframes op {
+	0% {
+		height: 0px;
+		opacity: 0;
+	}
+	
+	100% {
+		height: 500px;
+		opacity: 100%;
+		background: white;
+	}
+}
+
+@keyframes beat {
+  0% {
+	  transform: scale(1)rotate(-10deg);
+  }
+  
+  50% {
+    transform: scale(1.2);
+  }
+  
+  100% {
+	  transform: scale(1) rotate(10deg);
+  }
+  
+}
+
+.show {
+  display: block;
+  opacity: 1;
+}
+.heart-new {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent;
+  animation: drift 12s linear infinite;
+  opacity: 0;
+}
+
+.heart-new::before,
+.heart-new::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 16px;
+  border-radius: 50% 50% 0 0 ;
+  background-color: #ffffff;
+}
+
+.heart-new::before {
+  left: 0px;
+  transform: rotate(-45deg);
+}
+
+.heart-new::after {
+  left: 5px;
+  top: 2 px;
+  transform: rotate(45deg);
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0) rotate(-20deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+	opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px);
+	opacity: 0;
+  }
+}
